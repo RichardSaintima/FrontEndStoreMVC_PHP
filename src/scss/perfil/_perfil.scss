@@ -1,0 +1,39 @@
+@use'base/mixins' as m;
+@use'base/variables' as v;
+
+.perfil {
+   
+    &__heading {
+        @include m.heading(v.$moradoOscuro);
+    }
+            
+    &__texto {
+        color: v.$gris-oscuro;
+        font-size: 3rem;
+        text-align: center;
+    }
+    @include m.contenedor-sm;
+    &__contenido {
+        @include m.contenedor-sm;
+        @include m.card(v.$moradoOscuro);
+
+        &--nombre {
+            font-size: 2.5rem;
+            font-weight: v.$black;
+            color: v.$moradoOscuro;
+
+            strong {
+                font-size: 2rem;
+                font-weight: v.$bold;
+                color: v.$gris-oscuro;
+            }
+        }
+     }
+
+    &__enlace {
+        text-align: center;
+        margin-top: 2rem;
+        color: rgb(151, 3, 161);
+    }
+
+}

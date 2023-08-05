@@ -1,0 +1,40 @@
+@use'base/variables' as v;
+@use'base/mixins' as m;
+
+.carrito {
+    @include m.contenedor-sm;
+    @include m.telefono {
+        width: 100%;
+    } 
+    &__texto {
+        color: v.$gris-oscuro;
+        font-size: 3rem;
+        text-align: center;
+    }
+    &__heading {
+        @include m.heading(v.$moradoOscuro);
+    }
+
+
+    &__imagen {
+        display: table-cell;
+        @include m.telefono {
+            display: none;
+        } 
+        @include m.tablet {
+            display: block;
+        } 
+    }
+
+    &__total {
+        @include m.contenedor-sm;
+        text-align: end;
+        padding: 1.5rem;
+        font-weight: v.$black;
+        border-radius: 1rem;
+        color: v.$morado ;
+        background-color: v.$principal-claro;
+
+    }
+    
+}

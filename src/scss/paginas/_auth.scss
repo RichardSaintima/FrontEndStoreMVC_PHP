@@ -1,0 +1,17 @@
+@use 'base/mixins' as m;
+@use'base/variables' as v;
+
+.auth {
+    @include m.contenedor-sm;
+  
+    &__heading {
+        @include m.heading(v.$moradoOscuro);
+    }
+
+}
+
+
+.auth__texto {
+    color: v.$gris-oscuro;
+    font-size: 2rem;
+}

@@ -1,0 +1,78 @@
+@use'base/variables' as v;
+@use'base/mixins' as m;
+
+.inicio {
+    @include m.contenedor;
+    &__heading {
+        @include m.heading(v.$moradoOscuro);
+    }
+
+    &__texto {
+        color: v.$gris-oscuro;
+        font-size: 2rem;
+    }
+    &__grid {
+        @include m.contenedor;
+        @include m.grid(1, 5rem);
+        @include m.tablet {
+            @include m.grid(2, 5rem);
+        }
+        @include m.xl_desktop {
+            @include m.grid(3, 5rem);
+        }
+    }
+    &__producto {
+        @include m.contenedor-sm;
+        @include m.card(v.$principal-claro);
+        min-height: 4rem;
+        margin: 0;
+        padding: 1rem;
+        &--nombre {
+            font-weight: v.$black;
+            font-size: 2rem;
+            color: v.$amarilloOscuro;
+        }
+        &--precio {
+            font-weight: v.$black;
+            font-size: 2rem;
+            color: v.$amarilloOscuro;
+        }
+        &--descripcion {
+            font-weight: v.$black;
+            color: v.$amarilloOscuro;
+            font-size: 1.6rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        &--disponibles {
+            display: flex;
+            gap:2rem ;
+            align-items: center;
+            font-weight: v.$black;
+            font-size: 2rem;
+            color: v.$amarilloOscuro;
+            span {
+                font-weight: v.$black;
+                font-size: 2.4rem;
+                color: v.$amarillo;
+            }
+        }
+
+    }
+    &__detalles {
+        min-width: 300px;
+        @include m.card(v.$moradoOscuro); 
+        padding: 1rem;
+        background-color: (v.$principal-claro);
+    }
+
+    &__imagen {
+        min-width: 300px;
+        margin-bottom: .5rem;
+        // @include m.tablet {
+        //     min-width: unset;
+        // }
+    }
+}

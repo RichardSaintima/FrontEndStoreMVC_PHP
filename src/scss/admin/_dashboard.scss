@@ -1,0 +1,135 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.dashboard {
+    overflow: hidden;
+    &__header {
+        background-color: v.$moradoNegro;
+        padding: 2rem;
+    }
+    &__header-grid {
+        display: flex;
+        flex-direction: column;
+        @include m.tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__logo {
+        @include m.logo;
+        @include m.texto-fluido(2rem, 3rem);
+    }
+
+    &__nombre {
+        color: v.$blanco;
+        font-weight: v.$bold;
+        text-align: center;
+
+        span {
+            color: v.$principal-claro;
+        }
+    }
+
+    
+    &__form {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__submit--logout {
+        @include m.enlace;
+        &:hover {
+            color: v.$amarillo;
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    &__sidebar {
+        background-color: lighten(v.$morado, 10);
+        width: 12rem;
+        height: 100vh;
+    }
+
+    &__menu {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    &__enlace {
+        color: lighten(v.$amarilloOscuro, 40);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: 300ms background-color ease-in-out, 300ms color ease, 300ms border-radius ease;
+
+        &:hover,
+        &--actual {
+            background-color: lighten(v.$moradoNegro, 20);
+            color: v.$amarillo;
+            border-radius: 1rem;
+        }
+    }
+    &__icono {
+        font-size: 2rem;
+    }
+    &__menu-texto {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: v.$bold;
+        margin-top: .5rem;
+    }
+
+    &__contenido {
+        width: 100%;
+        padding: 1rem 1rem 3rem 1rem;
+        overflow: auto;
+        height: calc(100vh - 120px);
+        @include m.tablet {
+            padding: 1rem 5rem 3rem 5rem;
+        }
+    }
+
+    &__contenedor-boton {
+        @include m.tablet {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 5rem;
+        }
+    }
+    &__boton {
+        @include m.boton(v.$morado, v.$amarillo);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        @include m.tablet {
+            width: auto;
+        }
+    }
+
+    &__contenedor {
+        @include m.shadow;
+        background-color: v.$principal;
+        padding: 2rem;
+        border-radius: 1rem;
+        margin-top: 5rem;
+    }
+
+    &__formulario {
+        @extend .dashboard__contenedor;
+        @include m.contenedor-md;
+    }
+    input:not([type="submit"]) {
+        background-color:v.$principal-claro;
+    }
+
+    &__grafica {
+        @include m.contenedor-sm;
+    }
+}

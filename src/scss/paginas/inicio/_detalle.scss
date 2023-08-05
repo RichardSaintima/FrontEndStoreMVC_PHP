@@ -1,0 +1,41 @@
+@use'base/variables' as v;
+@use'base/mixins' as m;
+
+.detalle {
+    @include m.contenedor-sm;
+    @include m.shadow;
+    padding: 2rem;
+    &__heading{
+
+        @include m.heading(v.$moradoOscuro);
+        @include m.texto-fluido(4rem, 8rem);
+    }
+    &__imagen {
+        max-width: 40rem;
+        margin: 0 auto;
+    }
+    &__descripcion {
+        font-size: 2rem;
+        color: v.$moradoOscuro;
+        font-weight: v.$bold;
+        margin-bottom: .5rem;
+    }
+    &__precio {
+        font-size: 2rem;
+        color: v.$moradoOscuro;
+        font-weight: v.$bold;
+    }
+    &__contenido {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+
+    }
+    &__nombre{
+        font-size: 3rem;
+        color: v.$moradoNegro;
+        font-weight: v.$bold;   
+    }
+
+}
